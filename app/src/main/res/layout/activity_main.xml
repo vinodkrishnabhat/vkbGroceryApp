@@ -23,11 +23,11 @@
         android:id="@+id/editText2"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/edit_qty"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintBaseline_toBaselineOf="@+id/autoCompleteTextView"
-        android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
