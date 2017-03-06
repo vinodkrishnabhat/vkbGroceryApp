@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="edit_item">Item name</string>
+    <string name="edit_qty">Qty in KG</string>
+    <string name="button_add">Add</string>
+    <string name="button_replace">Replace</string>
+    <string name="button_generate">Generate List</string>
+</resources>
