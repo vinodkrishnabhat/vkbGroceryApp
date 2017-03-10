@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Add button */
     public void sendAdd(View view) {
-        doProcess(view, ADD);
+        doProcess(ADD);
     }
 
     /** Called when the user taps the Replace button */
     public void sendReplace(View view) {
-        doProcess(view, REPLACE);
+        doProcess(REPLACE);
     }
 
     /** Called when the user taps the GenerateList button */
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void doProcess(View view, String action) {
+    private void doProcess(String action) {
         AutoCompleteTextView textView = (AutoCompleteTextView)
                 findViewById(R.id.autoCompleteTextView);
         String item = textView.getText().toString();

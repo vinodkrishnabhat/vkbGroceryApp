@@ -1,12 +1,10 @@
 package com.vkb.myfirstapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.vkb.myfirstapp.processing.ExistingItems;
-import com.vkb.myfirstapp.processing.MonthlyList;
 
 public class DisplayMessageActivity extends MainActivity {
 

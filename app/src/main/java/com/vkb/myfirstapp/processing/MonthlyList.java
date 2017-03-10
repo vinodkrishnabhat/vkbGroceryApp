@@ -4,18 +4,9 @@ import android.support.annotation.NonNull;
 
 import com.vkb.myfirstapp.processing.enums.BuyLocationEnum;
 import com.vkb.myfirstapp.processing.enums.FrequencyEnum;
-import com.vkb.myfirstapp.processing.enums.UnitEnum;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-
-/**
- * Created by Maha on 05-Mar-17.
- */
 
 public class MonthlyList {
     public static Map<String, String> getMonthlyListAsMap() {
@@ -38,20 +29,20 @@ public class MonthlyList {
         return retMap;
     }
 
-    public static Map<String, List<String>> getInfrequentListAsMap() {
+    public static Map<String, String> getInfrequentListAsMap() {
         Map<String, MasterItem> masterList = MasterList.getInstance().getMasterList();
 
-        Map<String, List<String>> retMap = new LinkedHashMap<>();
+        Map<String, String> retMap = new LinkedHashMap<>();
 
         for (String key : masterList.keySet()) {
             MasterItem masterItem = masterList.get(key);
 
             if (FrequencyEnum.RARELY.equals(masterItem.getFrequency())) {
-                List<String> list = retMap.get(masterItem.getBuyAt().toString());
+                String list = retMap.get(masterItem.getBuyAt().toString());
                 if(list == null) {
-                    list = new LinkedList<>();
+                    list = "";
                 }
-                list.add(key);
+                list += key + "     ";
 
                 retMap.put(masterItem.getBuyAt().toString(), list);
             }
@@ -128,7 +119,7 @@ public class MonthlyList {
             Double value = list.get(key);
 
             if (value > 0) {
-                retStr += key + " - " + value + "\n";
+                retStr += key + " - " + value + "     ";
             }
         }
 
