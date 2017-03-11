@@ -4,18 +4,24 @@ import android.support.annotation.NonNull;
 
 import com.vkb.myfirstapp.processing.enums.BuyLocationEnum;
 import com.vkb.myfirstapp.processing.enums.FrequencyEnum;
+import com.vkb.myfirstapp.processing.enums.UnitEnum;
+import com.vkb.myfirstapp.processing.item.MasterItem;
+import com.vkb.myfirstapp.processing.item.PurchaseItem;
 
+import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MonthlyList {
+    private static DecimalFormat FORMATTER = new DecimalFormat("0.###");
+
     public static Map<String, String> getMonthlyListAsMap() {
-        Map<BuyLocationEnum, Map<String, Double>> monthlyMap = getMonthlyList();
+        Map<BuyLocationEnum, Map<String, PurchaseItem>> monthlyMap = getMonthlyList();
 
         Map<String, String> retMap = new LinkedHashMap<>();
 
         for (BuyLocationEnum buyLocation : BuyLocationEnum.values()) {
-            Map<String, Double> buyLocationList = monthlyMap.get(buyLocation);
+            Map<String, PurchaseItem> buyLocationList = monthlyMap.get(buyLocation);
             if(buyLocationList == null) {
                 continue;
             }
@@ -42,7 +48,7 @@ public class MonthlyList {
                 if(list == null) {
                     list = "";
                 }
-                list += key + "     ";
+                list += key + " ____ ____     ";
 
                 retMap.put(masterItem.getBuyAt().toString(), list);
             }
@@ -51,10 +57,10 @@ public class MonthlyList {
         return retMap;
     }
 
-    private static Map<BuyLocationEnum, Map<String, Double>> getMonthlyList() {
+    private static Map<BuyLocationEnum, Map<String, PurchaseItem>> getMonthlyList() {
         Map<String, MasterItem> masterList = MasterList.getInstance().getMasterList();
 
-        Map<BuyLocationEnum, Map<String, Double>> retList = new LinkedHashMap<>();
+        Map<BuyLocationEnum, Map<String, PurchaseItem>> retList = new LinkedHashMap<>();
 
         for (String key : masterList.keySet()) {
             MasterItem masterItem = masterList.get(key);
@@ -73,17 +79,27 @@ public class MonthlyList {
         return retList;
     }
 
-    private static void populateRetList(Map<BuyLocationEnum, Map<String, Double>> retList, String key, MasterItem masterItem) {
+    private static void populateRetList(Map<BuyLocationEnum, Map<String, PurchaseItem>> retList, String key, MasterItem masterItem) {
         Double masterQuantity = getQuantityInKG(masterItem);
         Double existingQuantity = ExistingItems.getInstance().getExistingQuantity(key);
 
         Double orderQuantity = (masterQuantity > existingQuantity) ? (masterQuantity - existingQuantity) : 0;
 
-        Map<String, Double> retMap = retList.get(masterItem.getBuyAt());
+        Map<String, PurchaseItem> retMap = retList.get(masterItem.getBuyAt());
         if (retMap == null) {
             retMap = new LinkedHashMap<>();
         }
-        retMap.put(key, orderQuantity);
+
+        PurchaseItem purchaseItem;
+
+        if(orderQuantity < 1) {
+            purchaseItem = PurchaseItem.getPurchaseItem(masterItem, orderQuantity * 1000, UnitEnum.g);
+        }
+        else {
+            purchaseItem = PurchaseItem.getPurchaseItem(masterItem, orderQuantity, masterItem.getUnit());
+        }
+
+        retMap.put(key, purchaseItem);
 
         retList.put(masterItem.getBuyAt(), retMap);
     }
@@ -94,14 +110,14 @@ public class MonthlyList {
         switch(masterItem.getUnit()) {
             case KG:
                 break;
-            case GRAMS:
+            case g:
                 qty /= 1000;
                 break;
-            case LITRE:
+            case L:
                 break;
             case ML:
                 break;
-            case PACK:
+            case pack:
                 break;
             default:
                 throw new IllegalArgumentException("Unknown Unit::" + masterItem.getUnit());
@@ -110,16 +126,15 @@ public class MonthlyList {
         return qty;
     }
 
-
     @NonNull
-    private static String getListAsString(Map<String, Double> list) {
+    private static String getListAsString(Map<String, PurchaseItem> list) {
         String retStr = "";
 
         for (String key : list.keySet()) {
-            Double value = list.get(key);
+            PurchaseItem purchaseItem = list.get(key);
 
-            if (value > 0) {
-                retStr += key + " - " + value + "     ";
+            if (purchaseItem.getQty() > 0) {
+                retStr += key + "-" + FORMATTER.format(purchaseItem.getQty()) + purchaseItem.getUnit() + "     ";
             }
         }
 

@@ -1,26 +1,21 @@
-package com.vkb.myfirstapp.processing;
+package com.vkb.myfirstapp.processing.item;
 
 import com.vkb.myfirstapp.processing.enums.BuyLocationEnum;
 import com.vkb.myfirstapp.processing.enums.FrequencyEnum;
 import com.vkb.myfirstapp.processing.enums.UnitEnum;
 
-/**
- * Created by Maha on 05-Mar-17.
- */
-
-public class MasterItem {
-
+abstract class Item {
     private String name;
     private Double qty;
     private UnitEnum unit;
     private FrequencyEnum frequency;
     private BuyLocationEnum buyAt;
 
-    public MasterItem(String name, Double qty, UnitEnum unit, FrequencyEnum frequency, BuyLocationEnum buyAt) {
+    protected Item(FrequencyEnum frequency, String name, Double qty, UnitEnum unit, BuyLocationEnum buyAt) {
+        this.frequency = frequency;
         this.name = name;
         this.qty = qty;
         this.unit = unit;
-        this.frequency = frequency;
         this.buyAt = buyAt;
     }
 

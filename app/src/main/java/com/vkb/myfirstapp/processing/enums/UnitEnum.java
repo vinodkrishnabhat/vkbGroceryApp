@@ -5,5 +5,5 @@ package com.vkb.myfirstapp.processing.enums;
  */
 
 public enum UnitEnum {
-    KG, GRAMS, LITRE, ML, PACK
+    KG, g, L, ML, pack
 }
