@@ -12,9 +12,6 @@ import com.android.volley.toolbox.Volley;
 import java.util.Map;
 
 public class CallAPI {
-
-    private static final String URL = "http://192.168.1.8:8000/printGroceryList";
-
     public static void call(final Map<String, String> postMap, Context context)
     {
         RequestQueue myRequestQueue = Volley.newRequestQueue(context);
@@ -31,16 +28,23 @@ public class CallAPI {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //This code is executed if there is an error.
+                error.printStackTrace();
             }
         };
 
-        StringRequest myStringRequest = new StringRequest(Request.Method.POST, URL, responseListener, responseErrorListener) {
-            protected Map<String, String> getParams() {
-                return postMap;
-            }
-        };
+        String URL_PRE = "http://192.168.1.";
+        String URL_POST = ":8000/printGroceryList";
 
+        for(int ctr = 1; ctr <= 255; ctr++) {
+            String url = URL_PRE + ctr + URL_POST;
 
-        myRequestQueue.add(myStringRequest);
+            StringRequest myStringRequest = new StringRequest(Request.Method.POST, url, responseListener, responseErrorListener) {
+                protected Map<String, String> getParams() {
+                    return postMap;
+                }
+            };
+
+            myRequestQueue.add(myStringRequest);
+        }
     }
 }

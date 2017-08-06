@@ -23,21 +23,23 @@ public class ExistingItems {
         existingItems = new HashMap<>();
     }
 
-    public void addToExistingItems(String existingItem, Double deltaQuantity) {
+    public Double addToExistingItems(String existingItem, Double deltaQuantity) {
         Double existingQuantity = getExistingQuantity(existingItem);
 
         Double newQuantity = existingQuantity + deltaQuantity;
 
-        replaceExistingItem(existingItem, newQuantity);
+        return replaceExistingItem(existingItem, newQuantity);
     }
 
-    public void replaceExistingItem(String existingItem, Double newQuantity) {
-        updateQuantity(existingItem, newQuantity);
+    public Double replaceExistingItem(String existingItem, Double newQuantity) {
+        return updateQuantity(existingItem, newQuantity);
     }
 
-    private void updateQuantity(String existingItem, Double newQuantity) {
+    private Double updateQuantity(String existingItem, Double newQuantity) {
         String key = getKey(existingItem);
         existingItems.put(key, newQuantity);
+
+        return newQuantity;
     }
 
     @NonNull

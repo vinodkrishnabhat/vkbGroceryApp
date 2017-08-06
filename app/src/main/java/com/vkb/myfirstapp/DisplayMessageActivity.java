@@ -26,21 +26,22 @@ public class DisplayMessageActivity extends MainActivity {
 
     private void processAndShowResponse(String item, Double qty, String action) {
         String performedActionMsg;
+        Double newQuantity;
 
         switch(action) {
             case MainActivity.ADD:
-                ExistingItems.getInstance().addToExistingItems(item, qty);
+                newQuantity = ExistingItems.getInstance().addToExistingItems(item, qty);
                 performedActionMsg = "Added";
                 break;
             case MainActivity.REPLACE:
-                ExistingItems.getInstance().replaceExistingItem(item, qty);
+                newQuantity = ExistingItems.getInstance().replaceExistingItem(item, qty);
                 performedActionMsg = "Replaced";
                 break;
             default:
                 throw new IllegalArgumentException("Unknown action");
         }
 
-        String message = "Successfully " + performedActionMsg + " " + qty + "kg of " + item;
+        String message = "Successfully " + performedActionMsg + " " + qty + "kg of " + item + ". Qty is " + newQuantity;
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView);

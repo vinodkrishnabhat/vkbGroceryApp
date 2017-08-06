@@ -29,7 +29,7 @@ public class MasterList {
 
     private void populateMasterList() {
         addToMasterList("Thick Avalakki", 2.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
-        addToMasterList("Thin Avalakki", 1.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
+        addToMasterList("Thin Avalakki", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Kadale Puri", 0.8, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Black Chana", 1.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Fried Gram", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
@@ -41,7 +41,7 @@ public class MasterList {
         addToMasterList("Toor Dal", 6.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Urad Dal", 3.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Kadale Bele", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
-        addToMasterList("Gram Flour", 2.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
+        addToMasterList("Gram Flour", 1.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Idli Rava", 2.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Maida Flour", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Rava Ordinary", 2.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
@@ -52,7 +52,7 @@ public class MasterList {
         addToMasterList("Nirmal Coconut", 1.0, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Sunflower Oil", 3.0, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Boost", 1.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
-        addToMasterList("Sugar", 5.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
+        addToMasterList("Sugar", 6.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Salt", 4.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Byadagi Chilli", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Coriander Seeds", 250.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
@@ -62,7 +62,6 @@ public class MasterList {
         addToMasterList("Mustard Seeds", 300.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Tamarind", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Bisibelebath", 200.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
-        addToMasterList("Chilli powder", 200.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Coriander powder", 200.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Cumin powder", 200.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Garam masala", 200.0, UnitEnum.g, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
@@ -79,7 +78,11 @@ public class MasterList {
         addToMasterList("Parachute Oil", 0.5, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Gingelly oil (cooking)", 1.0, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Dappakki (Fat Rice)", 3.0, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.SHETTY);
-        addToMasterList("Gingelly oil (deepa)", 3.0, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.SHETTY);
+        addToMasterList("Gingelly oil (deepa)", 3.0, UnitEnum.L, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
+        addToMasterList("Shampoo", 1.0, UnitEnum.pack, FrequencyEnum.MONTHLY, BuyLocationEnum.PATANJALI);
+        addToMasterList("Body Lotion", 1.0, UnitEnum.pack, FrequencyEnum.MONTHLY, BuyLocationEnum.PATANJALI);
+        addToMasterList("Oats", 0.5, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.PATANJALI);
+        addToMasterList("Agarbatti", 1.0, UnitEnum.pack, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
     }
     
     private void addToMasterList(String name, Double qty, UnitEnum unit, FrequencyEnum frequency, BuyLocationEnum buyAt) {
@@ -90,7 +93,6 @@ public class MasterList {
     }
 
     private void populateRareList() {
-        addToMasterList("Bansi Rava", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.FOODWORLD);
         addToMasterList("Rava Idli Mix", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Maggi Hot & Sweet", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Chilli Sauce", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.FOODWORLD);
@@ -102,14 +104,13 @@ public class MasterList {
         addToMasterList("Asafoetida", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Saumph", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.FOODWORLD);
         addToMasterList("White Til", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.FOODWORLD);
-        addToMasterList("Badam Powder", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
+        addToMasterList("Drainex", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Chocos", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Honey", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Jam", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
-        addToMasterList("Quaker Oats", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Honey Loops", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Front Load Powder", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
-        addToMasterList("Bleaching Powder", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
+        addToMasterList("Bleaching Powder", 0.4, UnitEnum.KG, FrequencyEnum.MONTHLY, BuyLocationEnum.DMART);
         addToMasterList("Harpic", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Lizol", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Tissues", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.FOODWORLD);
@@ -122,6 +123,8 @@ public class MasterList {
         addToMasterList("Vaseline mosturizer", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Scotch Brite", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
         addToMasterList("Shaving Cream", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
+        addToMasterList("Fair & Lovely", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
+        addToMasterList("Chilli powder", 0.0, UnitEnum.pack, FrequencyEnum.RARELY, BuyLocationEnum.DMART);
     }
 
     public String[] getItemNames() {
